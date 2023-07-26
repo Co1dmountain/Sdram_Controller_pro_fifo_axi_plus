@@ -2,12 +2,11 @@
  
 module  sdram_pro_top
 (
-    input   wire            sys_clk		,   //sdram时钟
+    input   wire            sys_clk			,   //sdram时钟
     input   wire            sys_rst_n		,   //sdram复位信号	
-    //input   wire            clk_out         ,   //sdram相位偏移时钟（直接给SDRAM芯片）
+	input					WR_BURST_FLAG	,
+	input					RD_BURST_FLAG	,
 //写FIFO信号
-    //input   wire            wr_fifo_wr_clk  ,   //写FIFO写时钟
-    //input   wire            wr_fifo_rst		,   //写FIFO复位信号	
     input   wire            wr_fifo_wr_req  ,   //写FIFO写请求
     input   wire    [15:0]  wr_fifo_wr_data ,   //写FIFO写数据
     input   wire    [22:0]  sdram_wr_b_addr ,   //写SDRAM首地址
@@ -70,10 +69,11 @@ assign  {sdram_cs_n, sdram_ras_n, sdram_cas_n, sdram_we_n} = sdram_cmd;
 //------------- fifo_ctrl_inst -------------
 sdram_pro_fifo_ctrl   fifo_ctrl_inst(
 //system    signal
+	.WR_BURST_FLAG	(WR_BURST_FLAG	),
+	.RD_BURST_FLAG	(RD_BURST_FLAG	),
     .sys_clk		(sys_clk		),  //SDRAM控制时钟
-    .sys_rst_n	(sys_rst_n	),  //复位信号
+    .sys_rst_n		(sys_rst_n		),  //复位信号
 //write fifo signal
-    //.wr_fifo_wr_clk (wr_fifo_wr_clk ),  //写FIFO写时钟
     .wr_fifo_wr_req (wr_fifo_wr_req ),  //写FIFO写请求
     .wr_fifo_wr_data(wr_fifo_wr_data),  //写FIFO写数据
     .sdram_wr_b_addr(sdram_wr_b_addr),  //写SDRAM首地址
@@ -83,7 +83,6 @@ sdram_pro_fifo_ctrl   fifo_ctrl_inst(
 	.wr_fifo_num	(wr_fifo_num	),	//写fifo中的数据量
 	.sdram_wr_end	(sdram_wr_end	),	//sdram单次突发写结束？
 //read fifo signal
-    //.rd_fifo_rd_clk (rd_fifo_rd_clk ),  //读FIFO读时钟
     .rd_fifo_rd_req (rd_fifo_rd_req ),  //读FIFO读请求
     .rd_fifo_rd_data(rd_fifo_rd_data),  //读FIFO读数据
     .rd_fifo_num    (rd_fifo_num    ),  //读FIFO中的数据量

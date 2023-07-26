@@ -1,5 +1,5 @@
 Flow report for sdram_fifo_axi
-Sun Jul 23 18:13:35 2023
+Wed Jul 26 15:36:28 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Flow Summary                                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Flow Status                        ; Successful - Sun Jul 23 18:13:35 2023            ;
+; Flow Status                        ; Successful - Wed Jul 26 15:36:28 2023            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; sdram_fifo_axi                                   ;
 ; Top-level Entity Name              ; sdram_pro_axi_top                                ;
 ; Family                             ; Cyclone II                                       ;
 ; Device                             ; EP2C35F672C6                                     ;
 ; Timing Models                      ; Final                                            ;
-; Total logic elements               ; 1,044                                            ;
-;     Total combinational functions  ; 880                                              ;
-;     Dedicated logic registers      ; 556                                              ;
-; Total registers                    ; 556                                              ;
-; Total pins                         ; 108                                              ;
+; Total logic elements               ; 922                                              ;
+;     Total combinational functions  ; 758                                              ;
+;     Dedicated logic registers      ; 548                                              ;
+; Total registers                    ; 548                                              ;
+; Total pins                         ; 100                                              ;
 ; Total virtual pins                 ; 0                                                ;
 ; Total memory bits                  ; 32,768                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                                ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/23/2023 18:13:33 ;
+; Start date & time ; 07/26/2023 15:36:25 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; sdram_fifo_axi      ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +--------------------------------------+---------------------------------------+----------------+-------------------+----------------------+
 ; Assignment Name                      ; Value                                 ; Default Value  ; Entity Name       ; Section Id           ;
 +--------------------------------------+---------------------------------------+----------------+-------------------+----------------------+
-; COMPILER_SIGNATURE_ID                ; 198516029817896.169010721308768       ; --             ; --                ; --                   ;
+; COMPILER_SIGNATURE_ID                ; 198516029817897.169035698518096       ; --             ; --                ; --                   ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --             ; --                ; sdram_pro_axi_top_tb ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; sdram_pro_axi_top_tb                  ; --             ; --                ; eda_simulation       ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                           ; --             ; --                ; eda_simulation       ;

@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sun Jul 23 18:13:35 2023
+Analysis & Synthesis Status : Successful - Wed Jul 26 15:36:28 2023
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
 Revision Name : sdram_fifo_axi
 Top-level Entity Name : sdram_pro_axi_top
 Family : Cyclone II
-Total logic elements : 1,044
-    Total combinational functions : 880
-    Dedicated logic registers : 556
-Total registers : 556
-Total pins : 108
+Total logic elements : 922
+    Total combinational functions : 758
+    Dedicated logic registers : 548
+Total registers : 548
+Total pins : 100
 Total virtual pins : 0
 Total memory bits : 32,768
 Embedded Multiplier 9-bit elements : 0

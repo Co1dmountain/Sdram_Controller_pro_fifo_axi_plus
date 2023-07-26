@@ -9,7 +9,7 @@ z2
 cModel Technology
 dD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/simulation/modelsim
 vio_buf_opdrn
-Z0 !s110 1690336525
+Z0 !s110 1690357074
 !i10b 1
 !s100 =^<AH`I:TA`[9YUe=h1;_1
 IZN1^VznYhnD>DdhzlD;iP3
@@ -23,7 +23,7 @@ Z6 OL;L;10.5;63
 r1
 !s85 0
 31
-Z7 !s108 1690336525.000000
+Z7 !s108 1690357074.000000
 Z8 !s107 d:/altera/13.0sp1/quartus/eda/sim_lib/sgate.v|
 Z9 !s90 -reportprogress|300|-vlog01compat|-work|sgate_ver|d:/altera/13.0sp1/quartus/eda/sim_lib/sgate.v|
 !i113 0

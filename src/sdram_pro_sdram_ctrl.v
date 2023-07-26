@@ -116,8 +116,6 @@ module sdram_pro_sdram_ctrl(
 	    .wr_end         (wr_end			),
 	    .wr_cmd         (wr_sdram_cmd   ),
 	    .wr_addr        (wr_sdram_addr  ),
-	    //.wr_data_valid  (wr_data_valid 	),
-	    //.wr_sdram_data  (sdram_data_in	), // 要写入的数据？
 	    .rd_req         (sdram_rd_req   ),
 	    .rd_end         (rd_end       	),
 	    .rd_cmd         (rd_sdram_cmd   ),
@@ -129,10 +127,6 @@ module sdram_pro_sdram_ctrl(
 		.sdram_cke      (sdram_cke    	),
 		.cur_state		(cur_state		),	
 		.next_state		(next_state		)
-		//.sdram_cmd      (sdram_cmd    	),
-		//.sdram_bank     (sdram_bank   	),
-		//.sdram_addr     (sdram_addr   	)
-		//.sdram_dq       (sdram_dq     	)
 	);
 	// sdram初始化模块
 	sdram_pro_init  U_sdram_pro_init(

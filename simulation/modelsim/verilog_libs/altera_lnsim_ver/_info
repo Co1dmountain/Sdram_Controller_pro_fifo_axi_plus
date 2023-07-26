@@ -10,7 +10,7 @@ cModel Technology
 dD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/simulation/modelsim
 valtera_arriav_pll
 Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z1 !s110 1690336527
+Z1 !s110 1690357075
 !i10b 1
 !s100 [Yk[z106dfBRQO<E@BWIe0
 IF[SA>Z;6gL2=fMGe0HQN52
@@ -26,7 +26,7 @@ Z8 OL;L;10.5;63
 r1
 !s85 0
 31
-Z9 !s108 1690336527.000000
+Z9 !s108 1690357075.000000
 Z10 !s107 d:/altera/13.0sp1/quartus/eda/sim_lib/altera_lnsim.sv|
 Z11 !s90 -reportprogress|300|-sv|-work|altera_lnsim_ver|d:/altera/13.0sp1/quartus/eda/sim_lib/altera_lnsim.sv|
 !i113 0

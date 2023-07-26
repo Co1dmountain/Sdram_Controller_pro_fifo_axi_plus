@@ -7,9 +7,9 @@
 module sdram_pro_fifo_ctrl(
 		input					sys_clk					,
 		input					sys_rst_n				,
+		input					WR_BURST_FLAG			,
+		input					RD_BURST_FLAG			,
 		// 写数据操作相关信号
-		//input					wr_fifo_wr_clk
-		
 		input	[15:0]			wr_fifo_wr_data			, // 写fifo写数据 外部输入   外部->写fifo
 		input					wr_fifo_wr_req			, // 写fifo写请求
 		input	[22:0]			sdram_wr_b_addr			, // sdram写起始地址
@@ -31,21 +31,18 @@ module sdram_pro_fifo_ctrl(
 		output	[15:0]			sdram_in_data			, // wr_fifo到sdram的数据    写fifo->sdram
 		output	reg				sdram_wr_req			, // sdram写请求
 		input					sdram_wr_ack			, // sdram写响应
-		output	reg [22:0]			sdram_wr_addr			, // sdram写地址
+		output	reg [22:0]		sdram_wr_addr		, // sdram写地址
 		// sdram读数据相关信号
 		input	[15:0]			sdram_out_data			, // sdram到rd_fifo的数据    sdram->读fifo
 		output	reg				sdram_rd_req			, // sdram读请求
 		input					sdram_rd_ack			, // sdram读响应
-		output	reg [22:0]			sdram_rd_addr			  // sdram读地址
+		output	reg [22:0]		sdram_rd_addr			  // sdram读地址
 		
 		
 );
 
 	//// define ////
-	reg [15:0] reg_rd_fifo_rd_data; 
-	reg [15:0] reg_sdram_in_data;
-	reg [15:0] reg_sdram_out_data;
-	reg [22:0] reg_sdram_wr_addr;
+
 
 	//// main code ////
 	//wire define
@@ -57,11 +54,7 @@ module sdram_pro_fifo_ctrl(
 	reg		sdram_wr_ack_d2	;     //写响应打2拍
 	reg		sdram_rd_ack_d1	;     //读响应打1拍
 	reg		sdram_rd_ack_d2	;     //读响应打2拍
-	// 获取sdram_wr_req下降沿
-	reg sdram_wr_req_r1;
-	reg sdram_wr_req_r2;
-	// 表示一次写完成
-	//reg sdram_wr_end;
+
 	 
 	//********************************************************************//
 	//***************************** Main Code ****************************//
@@ -120,75 +113,87 @@ module sdram_pro_fifo_ctrl(
 			end
 	end
 	 
+	// wr_req_cnt & rd_req_cnt
+	// reg [9:0] wr_req_cnt;
+	// reg [9:0] rd_req_cnt;
+	
+	// always @(posedge sys_clk or negedge sys_rst_n) begin
+		// if(!sys_rst_n) begin
+			// wr_req_cnt <= 'd0;
+		// end
+		// else if()
+	// end
+	
 	//sdram_wr_req,sdram_rd_req:读写请求信号 - 传到arbit模块
-	always@(posedge sys_clk or negedge sys_rst_n)begin
-		if(!sys_rst_n)
-			begin
-				sdram_wr_req <= 1'b0;
-				sdram_rd_req <= 1'b0;
-			end
-		else if(init_end)   							//初始化完成后响应读写请求
-			begin   									//优先执行写操作，防止写入SDRAM中的数据丢失
-				//if(wr_fifo_num >= wr_burst_len)begin   	//写FIFO中的数据量达到写突发长度
-				//if(wr_fifo_num >= wr_burst_len && wr_fifo_num <= 2*wr_burst_len)begin   	//写FIFO中的数据量达到写突发长度
-				if(wr_fifo_num >= 'd1) begin
-					sdram_wr_req <=  1'b1;   			//写请求有效
-					sdram_rd_req <=  1'b0;
-				end
-				//else if((rd_fifo_num < rd_burst_len) && (read_valid))begin //读FIFO中的数据量小于读突发长度,且读使能信号有效
-				//else if((rd_fifo_num < rd_burst_len) && wr_fifo_num == 'd0 && read_valid)begin //读FIFO中的数据量小于读突发长度,且读使能信号有效
-				else if((rd_fifo_num < rd_burst_len) && sdram_wr_end == 1'b1)begin //读FIFO中的数据量小于读突发长度,且读使能信号有效
-					sdram_wr_req <=  1'b0;
-					sdram_rd_req <=  1'b1;   			//读请求有效
-				end
-				//// 23.7.25 add ////
-				/* else if((rd_fifo_num >= rd_burst_len))begin //读FIFO中的数据量小于读突发长度,且读使能信号有效
-					sdram_wr_req <=  1'b1;
-					sdram_rd_req <=  1'b0;   			//读请求有效
-				end */
-				else begin
-					sdram_wr_req <=  1'b0;
-					sdram_rd_req <= 1'b0;
-				end
-			end
-		else begin
+	// always@(posedge sys_clk or negedge sys_rst_n)begin
+		// if(!sys_rst_n)
+			// begin
+				// sdram_wr_req <= 1'b0;
+				// sdram_rd_req <= 1'b0;
+			// end
+		// else if(init_end)   							//初始化完成后响应读写请求
+			// begin   									//优先执行写操作，防止写入SDRAM中的数据丢失
+				// //if(wr_fifo_num >= wr_burst_len)begin   	//写FIFO中的数据量达到写突发长度
+				// //if(wr_fifo_num >= wr_burst_len && wr_fifo_num <= 2*wr_burst_len)begin   	//写FIFO中的数据量达到写突发长度
+				// //if(wr_fifo_num >= 'd1) begin
+				// //if(wr_fifo_num >= 'd1 && WR_BURST_FLAG) begin
+				// if(WR_BURST_FLAG) begin
+					// sdram_wr_req <=  1'b1;   			//写请求有效
+					// sdram_rd_req <=  1'b0;
+				// end
+				// //else if((rd_fifo_num < rd_burst_len) && sdram_wr_end == 1'b1)begin //读FIFO中的数据量小于读突发长度,且读使能信号有效
+				// //else if((rd_fifo_num < rd_burst_len) && RD_BURST_FLAG)begin //读FIFO中的数据量小于读突发长度,且读使能信号有效
+				// else if(RD_BURST_FLAG)begin //读FIFO中的数据量小于读突发长度,且读使能信号有效
+					// sdram_wr_req <=  1'b0;
+					// sdram_rd_req <=  1'b1;   			//读请求有效
+				// end
+				// //// 23.7.25 add ////
+				// /* else if((rd_fifo_num >= rd_burst_len))begin //读FIFO中的数据量小于读突发长度,且读使能信号有效
+					// sdram_wr_req <=  1'b1;
+					// sdram_rd_req <=  1'b0;   			//读请求有效
+				// end */
+				// else begin
+					// sdram_wr_req <=  1'b0;
+					// sdram_rd_req <= 1'b0;
+				// end
+			// end
+		// else begin
+			// sdram_wr_req <= 1'b0;
+			// sdram_rd_req <= 1'b0;
+		// end
+	// end
+
+	// sdram_wr_req
+	always @(posedge sys_clk or negedge sys_rst_n) begin
+		if(!sys_rst_n) begin
 			sdram_wr_req <= 1'b0;
-			sdram_rd_req <= 1'b0;
+		end
+		else if(WR_BURST_FLAG && !sdram_wr_end) begin
+			sdram_wr_req <= 1'b1;
+		end
+		else if(sdram_wr_end == 1'b1) begin
+			sdram_wr_req <= 1'b0;
+		end
+		else begin
+			sdram_wr_req <= sdram_wr_req;
 		end
 	end
 
-	
-	// 产生 sdram_wr_end 来切换 sdram 读写操作
-	// assign sdram_wr_req_neg = ~sdram_wr_req_r1 & sdram_wr_req_r2;
-	// always@(posedge sys_clk or negedge sys_rst_n) begin
-		// if(!sys_rst_n) begin
-			// sdram_wr_req_r1 <= 1'b0;
-			// sdram_wr_req_r2 <= 1'b0;
-		// end
-		// else begin
-			// sdram_wr_req_r1 <= sdram_wr_req;
-			// sdram_wr_req_r2 <= sdram_wr_req_r1;
-		// end
-	// end
-	// always@(posedge sys_clk or negedge sys_rst_n) begin
-		// if(!sys_rst_n) begin
-			// sdram_wr_end <= 1'b0;
-		// end
-		// else if(sdram_wr_req_neg) begin
-			// sdram_wr_end <= 1'b1;
-		// end
-	// end
-
-
-
-
-
-
-
-
-
-
-
+	// sdram_rd_req
+	always @(posedge sys_clk or negedge sys_rst_n) begin
+		if(!sys_rst_n) begin
+			sdram_rd_req <= 1'b0;
+		end
+		else if(RD_BURST_FLAG && sdram_rd_end == 1'b0) begin
+			sdram_rd_req <= 1'b1;
+		end
+		else if(sdram_rd_end) begin
+			sdram_rd_req <= 1'b0;
+		end
+		else begin
+			sdram_rd_req <= sdram_rd_req;
+		end
+	end
 
 
 

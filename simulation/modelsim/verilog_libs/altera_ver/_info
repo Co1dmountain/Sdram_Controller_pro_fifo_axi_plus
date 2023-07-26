@@ -9,7 +9,7 @@ z2
 cModel Technology
 dD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/simulation/modelsim
 valt_bidir_buf
-Z0 !s110 1690336524
+Z0 !s110 1690357073
 !i10b 1
 !s100 a6?6cHeC]_[b_;=i8O1hN3
 Ih41S>gkP@FIzI_[KcRCEc0
@@ -23,7 +23,7 @@ Z6 OL;L;10.5;63
 r1
 !s85 0
 31
-Z7 !s108 1690336524.000000
+Z7 !s108 1690357073.000000
 Z8 !s107 d:/altera/13.0sp1/quartus/eda/sim_lib/altera_primitives.v|
 Z9 !s90 -reportprogress|300|-vlog01compat|-work|altera_ver|d:/altera/13.0sp1/quartus/eda/sim_lib/altera_primitives.v|
 !i113 0
@@ -597,7 +597,7 @@ R9
 R10
 R11
 UPRIM_GDFF_HIGH
-!s110 1690336525
+R0
 !i10b 1
 !s100 <RlezzC46azngjigY]=oS2
 IQ:zGUW52EA=MG3Qg_RnoX0

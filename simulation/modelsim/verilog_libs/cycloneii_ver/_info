@@ -9,7 +9,7 @@ z2
 cModel Technology
 dD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/simulation/modelsim
 vcycloneii_and1
-Z0 !s110 1690336527
+Z0 !s110 1690357076
 !i10b 1
 !s100 SK=1h17;jZ:B]1cmUonKF1
 I^W]lX7l9IViHiU;;Xe_6d2
@@ -23,7 +23,7 @@ Z6 OL;L;10.5;63
 r1
 !s85 0
 31
-Z7 !s108 1690336527.000000
+Z7 !s108 1690357076.000000
 Z8 !s107 d:/altera/13.0sp1/quartus/eda/sim_lib/cycloneii_atoms.v|
 Z9 !s90 -reportprogress|300|-vlog01compat|-work|cycloneii_ver|d:/altera/13.0sp1/quartus/eda/sim_lib/cycloneii_atoms.v|
 !i113 0

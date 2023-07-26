@@ -12,10 +12,10 @@
 		parameter  C_M_TARGET_SLAVE_BASE_ADDR	= 'd0,
 		// Burst Length. Supports 1, 2, 4, 8, 16, 32, 64, 128, 256 burst lengths
 		// 突发长度
-		parameter integer C_M_AXI_BURST_LEN	= 16,
+		parameter integer C_M_AXI_BURST_LEN		= 16,
 		// Thread ID Width
 		// ID位宽
-		parameter integer C_M_AXI_ID_WIDTH	= 1,
+		parameter integer C_M_AXI_ID_WIDTH		= 1,
 		// Width of Address Bus
 		// 地址位宽
 		parameter integer C_M_AXI_ADDR_WIDTH	= 23,
@@ -37,7 +37,12 @@
 	)
 	(
 		// Users to add ports here
-		input	sdram_wr_end,
+		input	i_write_burst_en				, // 突发写，外部输入，表示需要进行突发写，暂定此信号为一个脉冲
+		input	i_read_burst_en					, // 突发读，外部输入，表示需要进行突发读，暂定此信号为一个脉冲
+		input	sdram_wr_end					, // sdram 写突发完成信号
+		input	sdram_rd_end					, // sdram 读突发完成信号
+		output	WR_BURST_FLAG					,
+		output	RD_BURST_FLAG					,
 		// User ports ends
 		// Do not modify the ports beyond this line
  
@@ -230,19 +235,22 @@
 	// Example State machine to initialize counter, initialize write transactions, 
 	// initialize read transactions and comparison of read data with the 
 	// written data words.
-	parameter [1:0] IDLE = 2'b00, // This state initiates AXI4Lite transaction 
+	parameter [2:0] IDLE 			= 'd0, // This state initiates AXI4Lite transaction 
 					// after the state machine changes state to INIT_WRITE 
 					// when there is 0 to 1 transition on INIT_AXI_TXN
-					INIT_WRITE   = 2'b01, // This state initializes write transaction,
+					INIT_WRITE   	= 'd1, // This state initializes write transaction,
 					// once writes are done, the state machine 
 					// changes state to INIT_READ 
-					INIT_READ = 2'b10, // This state initializes read transaction
+					INIT_READ 		= 'd2, // This state initializes read transaction
 					// once reads are done, the state machine 
 					// changes state to INIT_COMPARE 
-					INIT_COMPARE = 2'b11; // This state issues the status of comparison 
+					INIT_COMPARE 	= 'd3, // This state issues the status of comparison 
 					// of the written data with the read data	
+					/****************************** self ******************************/
+					// add ARBIT state
+					ARBIT			= 'd4;
  
-	 reg [1:0] mst_exec_state;
+	 reg [2:0] mst_exec_state;
  
 	// AXI4LITE signals
 	//AXI4 internal temp signals
@@ -284,7 +292,86 @@
 	reg  	init_txn_edge;
 	wire  	init_txn_pulse;
 	
-		// I/O Connections assignments
+	/****************************** self ******************************/
+	/****************************** self ******************************/
+	/****************************** self ******************************/
+	// 获取两个使能信号上升沿
+	reg 		i_write_burst_en_r0				;
+	reg 		i_write_burst_en_r1				;
+	reg 		i_read_burst_en_r0				;
+	reg 		i_read_burst_en_r1				;
+	wire 		i_write_burst_en_pos			;
+	wire 		i_read_burst_en_pos				;
+	// wr
+	always @(posedge M_AXI_ACLK) begin
+		if(!M_AXI_ARESETN) begin
+			i_write_burst_en_r0 <= 1'b0;
+			i_write_burst_en_r1 <= 1'b0;
+		end
+		else begin
+			i_write_burst_en_r0 <= i_write_burst_en;
+			i_write_burst_en_r1 <= i_write_burst_en_r0;
+		end
+	end
+	// rd
+	always @(posedge M_AXI_ACLK) begin
+		if(!M_AXI_ARESETN) begin
+			i_read_burst_en_r0 <= 1'b0;
+			i_read_burst_en_r1 <= 1'b0;
+		end
+		else begin
+			i_read_burst_en_r0 <= i_read_burst_en;
+			i_read_burst_en_r1 <= i_read_burst_en_r0;
+		end
+	end
+	// assign
+	assign i_write_burst_en_pos = i_write_burst_en_r0 & ~i_write_burst_en_r1;
+	assign i_read_burst_en_pos = i_read_burst_en_r0 & ~i_read_burst_en_r1;
+	
+	// 利用上升沿信号产生模块内部使用的flag信号
+	reg wr_burst_flag;
+	reg rd_burst_flag;
+	// wr
+	always @(posedge M_AXI_ACLK) begin
+		if(!M_AXI_ARESETN) begin
+			wr_burst_flag <= 1'b0;
+		end
+		else if(i_write_burst_en_pos) begin
+			wr_burst_flag <= 1'b1;
+		end
+		//else if(sdram_wr_end) begin
+		else if(write_index == C_M_AXI_BURST_LEN-1) begin
+			wr_burst_flag <= 1'b0;
+		end
+		else begin
+			wr_burst_flag <= wr_burst_flag;
+		end
+	end
+	// rd
+	always @(posedge M_AXI_ACLK) begin
+		if(!M_AXI_ARESETN) begin
+			rd_burst_flag <= 1'b0;
+		end
+		else if(i_read_burst_en_pos) begin
+			rd_burst_flag <= 1'b1;
+		end
+		else if(sdram_rd_end) begin
+		//else if(read_index == C_M_AXI_BURST_LEN-1) begin
+			rd_burst_flag <= 1'b0;
+		end
+		else begin
+			rd_burst_flag <= rd_burst_flag;
+		end
+	end
+	
+	assign WR_BURST_FLAG = wr_burst_flag;
+	assign RD_BURST_FLAG = rd_burst_flag;
+	
+	/****************************** self ******************************/
+	/****************************** self ******************************/
+	/****************************** self ******************************/
+	
+	// I/O Connections assignments
  
 	//I/O Connections. Write Address (AW)
 	assign M_AXI_AWID	= 'b0;
@@ -385,7 +472,8 @@
 	      end                                                              
 	    else if (M_AXI_AWREADY && axi_awvalid)  // 从机接收到写地址？                          
 	      begin                                                            
-	        axi_awaddr <= axi_awaddr + burst_size_bytes;                   
+	        //axi_awaddr <= axi_awaddr + burst_size_bytes;                   
+	        axi_awaddr <= axi_awaddr + burst_size_bytes/2;                   
 	      end                                                              
 	    else                                                               
 	      axi_awaddr <= axi_awaddr; 
@@ -458,7 +546,8 @@
 	        write_index <= write_index + 1;                                             
 	      end                                                                           
 	    else                                                                            
-	      write_index <= write_index;                                                   
+	      //write_index <= write_index;                                                   
+	      write_index <= 'd0;                                                   
 	  end                                                                               
 	                                                                                    
 	                                                                                    
@@ -561,7 +650,7 @@
 	        read_index <= read_index + 1;                                   
 	      end                                                               
 	    else                                                                
-	      read_index <= read_index;                                         
+	      read_index <= read_index;                                                                             
 	  end                                                                   
 
                                                         
@@ -701,14 +790,13 @@
 	      begin                                                                                                 
 	                                                                                                            
 	        // state transition                                                                                 
-	        case (mst_exec_state)                                                                               
-	                                                                                                            
+	        case (mst_exec_state)                                                                                                                                                                             
 	          IDLE:                                                                                     
 	            // This state is responsible to wait for user defined C_M_START_COUNT                           
 	            // number of clock cycles.                                                                      
 	            if ( init_txn_pulse == 1'b1)                                                      
 	              begin                                                                                         
-	                mst_exec_state  <= INIT_WRITE;                                                              
+	                mst_exec_state  <= ARBIT;                                                              
 	                ERROR <= 1'b0;
 	                compare_done <= 1'b0;
 	              end                                                                                           
@@ -716,15 +804,29 @@
 	              begin                                                                                         
 	                mst_exec_state  <= IDLE;                                                            
 	              end                                                                                           
-	                                                                                                            
+			  ARBIT : begin
+				if(wr_burst_flag) begin
+					mst_exec_state <= INIT_WRITE;
+				end
+				else if(rd_burst_flag) begin
+					mst_exec_state <= INIT_READ;
+				end
+				else begin
+					mst_exec_state <= ARBIT;
+				end
+			  end
 	          INIT_WRITE:                                                                                       
 	            // This state is responsible to issue start_single_write pulse to                               
 	            // initiate a write transaction. Write transactions will be                                     
 	            // issued until burst_write_active signal is asserted.                                          
 	            // write controller                                                                             
-	            if (writes_done && sdram_wr_end)                                                                                
+	            //if (writes_done)                                                                                
+	            //if (sdram_wr_end)                                                                                
+	            if (write_index == C_M_AXI_BURST_LEN-1)                                                                                
 	              begin                                                                                         
-	                mst_exec_state <= INIT_READ;//                                                              
+	                //mst_exec_state <= INIT_READ;//                                                            
+	                /****************************** self ******************************/
+					mst_exec_state <= ARBIT;//                                                            
 	              end                                                                                           
 	            else                                                                                            
 	              begin                                                                                         
@@ -746,14 +848,16 @@
 	            // initiate a read transaction. Read transactions will be                                       
 	            // issued until burst_read_active signal is asserted.                                           
 	            // read controller                                                                              
-	            if (reads_done)                                                                                 
+	            //if (reads_done)                                                                                 
+	            if (sdram_rd_end)                                                                                 
+	            //if (read_index == C_M_AXI_BURST_LEN-1)                                                                                 
 	              begin                                                                                         
-	                mst_exec_state <= INIT_COMPARE;                                                             
+	                //mst_exec_state <= INIT_COMPARE;                                                             
+	                mst_exec_state <= ARBIT;                                                             
 	              end                                                                                           
 	            else                                                                                            
 	              begin                                                                                         
-	                mst_exec_state  <= INIT_READ;                                                               
-	                                                                                                            
+	                mst_exec_state  <= INIT_READ;                                                               	                                                                                                            
 	                if (~axi_arvalid && ~burst_read_active && ~start_single_burst_read)                         
 	                  begin                                                                                     
 	                    start_single_burst_read <= 1'b1;                                                        
@@ -809,10 +913,10 @@
 	    
 		//else if (M_AXI_BVALID && (write_burst_counter[C_NO_BURSTS_REQ]) && axi_bready)                          
 		else if (M_AXI_BVALID && (write_burst_counter == 'd1) && axi_bready)                          
-	    
-		writes_done <= 1'b1;                                                                                  
+			writes_done <= 1'b1;                                                                                  
 	    else                                                                                                    
-	      writes_done <= writes_done;                                                                           
+			//writes_done <= writes_done;                                                                           
+			writes_done <= 1'b0;                                                                           
 	    end  
 		
 	  // burst_read_active signal is asserted when there is a burst write transaction                           
@@ -846,7 +950,8 @@
 		else if (M_AXI_RVALID && axi_rready && (read_index == C_M_AXI_BURST_LEN-1) && (read_burst_counter == 'd1))
 	      reads_done <= 1'b1;                                                                                   
 	    else                                                                                                    
-	      reads_done <= reads_done;                                                                             
+	      //reads_done <= reads_done;                                                                             
+	      reads_done <= 1'b0;                                                                             
 	    end                                                                                                     
  
 	// Add user logic here
