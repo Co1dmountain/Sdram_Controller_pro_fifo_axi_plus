@@ -1,0 +1,51 @@
+
+State Machine - |sdram_pro_axi_top|sdram_pro_axi_master:u_sdram_pro_axi_master|mst_exec_state
+Name mst_exec_state.INIT_COMPARE mst_exec_state.INIT_READ mst_exec_state.INIT_WRITE mst_exec_state.IDLE 
+mst_exec_state.IDLE 0 0 0 0 
+mst_exec_state.INIT_WRITE 0 0 1 1 
+mst_exec_state.INIT_READ 0 1 0 1 
+mst_exec_state.INIT_COMPARE 1 0 0 1 
+
+State Machine - |sdram_pro_axi_top|sdram_pro_top:u_sdram_pro_top|sdram_pro_sdram_ctrl:sdram_ctrl_inst|sdram_pro_read:U_sdram_pro_read|cur_state
+Name cur_state.RD_PLUS cur_state.RD_END cur_state.RD_TRP cur_state.RD_PRECHARGE cur_state.RD_TERMINATE cur_state.RD_READ_DATA cur_state.RD_CAS_LATENCY cur_state.RD_READ_CMD cur_state.RD_TRCD cur_state.RD_ACTIVE cur_state.RD_IDLE 
+cur_state.RD_IDLE 0 0 0 0 0 0 0 0 0 0 0 
+cur_state.RD_ACTIVE 0 0 0 0 0 0 0 0 0 1 1 
+cur_state.RD_TRCD 0 0 0 0 0 0 0 0 1 0 1 
+cur_state.RD_READ_CMD 0 0 0 0 0 0 0 1 0 0 1 
+cur_state.RD_CAS_LATENCY 0 0 0 0 0 0 1 0 0 0 1 
+cur_state.RD_READ_DATA 0 0 0 0 0 1 0 0 0 0 1 
+cur_state.RD_TERMINATE 0 0 0 0 1 0 0 0 0 0 1 
+cur_state.RD_PRECHARGE 0 0 0 1 0 0 0 0 0 0 1 
+cur_state.RD_TRP 0 0 1 0 0 0 0 0 0 0 1 
+cur_state.RD_END 0 1 0 0 0 0 0 0 0 0 1 
+cur_state.RD_PLUS 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |sdram_pro_axi_top|sdram_pro_top:u_sdram_pro_top|sdram_pro_sdram_ctrl:sdram_ctrl_inst|sdram_pro_write:U_sdram_pro_write|cur_state
+Name cur_state.WR_TRP cur_state.WR_PRECHARGE cur_state.WR_TERMINATE cur_state.WR_WRITE_DATA cur_state.WR_WRITE_BEGIN cur_state.WR_TRCD cur_state.WR_ACTIVE cur_state.WR_IDLE cur_state.WR_END 
+cur_state.WR_IDLE 0 0 0 0 0 0 0 0 0 
+cur_state.WR_ACTIVE 0 0 0 0 0 0 1 1 0 
+cur_state.WR_TRCD 0 0 0 0 0 1 0 1 0 
+cur_state.WR_WRITE_BEGIN 0 0 0 0 1 0 0 1 0 
+cur_state.WR_WRITE_DATA 0 0 0 1 0 0 0 1 0 
+cur_state.WR_TERMINATE 0 0 1 0 0 0 0 1 0 
+cur_state.WR_PRECHARGE 0 1 0 0 0 0 0 1 0 
+cur_state.WR_TRP 1 0 0 0 0 0 0 1 0 
+cur_state.WR_END 0 0 0 0 0 0 0 1 1 
+
+State Machine - |sdram_pro_axi_top|sdram_pro_top:u_sdram_pro_top|sdram_pro_sdram_ctrl:sdram_ctrl_inst|sdram_pro_autorefresh:U_sdram_pro_autorefresh|cur_state
+Name cur_state.ATREF_END cur_state.ATREF_ATREF cur_state.ATREF_PRECHARGE cur_state.ATREF_IDLE 
+cur_state.ATREF_IDLE 0 0 0 0 
+cur_state.ATREF_PRECHARGE 0 0 1 1 
+cur_state.ATREF_ATREF 0 1 0 1 
+cur_state.ATREF_END 1 0 0 1 
+
+State Machine - |sdram_pro_axi_top|sdram_pro_top:u_sdram_pro_top|sdram_pro_sdram_ctrl:sdram_ctrl_inst|sdram_pro_init:U_sdram_pro_init|cur_state
+Name cur_state.INIT_END cur_state.INIT_MODE_RESGISTER cur_state.INIT_Trc_2 cur_state.INIT_AT_REFRESH_2 cur_state.INIT_Trc_1 cur_state.INIT_AT_REFRESH_1 cur_state.INIT_PRECHARGE cur_state.INIT_IDLE 
+cur_state.INIT_IDLE 0 0 0 0 0 0 0 0 
+cur_state.INIT_PRECHARGE 0 0 0 0 0 0 1 1 
+cur_state.INIT_AT_REFRESH_1 0 0 0 0 0 1 0 1 
+cur_state.INIT_Trc_1 0 0 0 0 1 0 0 1 
+cur_state.INIT_AT_REFRESH_2 0 0 0 1 0 0 0 1 
+cur_state.INIT_Trc_2 0 0 1 0 0 0 0 1 
+cur_state.INIT_MODE_RESGISTER 0 1 0 0 0 0 0 1 
+cur_state.INIT_END 1 0 0 0 0 0 0 1 

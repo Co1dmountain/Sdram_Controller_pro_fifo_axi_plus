@@ -1,0 +1,349 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/simulation/modelsim
+T_opt
+!s110 1690354182
+V08^D[z]R>7fb]7MW41Yo10
+04 20 4 work sdram_pro_axi_top_tb fast 0
+=5-b48c9d708428-64c0c205-2d9-a3c
+o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work +acc
+Z1 tCvgOpt 0
+n@_opt
+OL;O;10.5;63
+vread_fifo
+!s110 1690354175
+!i10b 1
+!s100 5:mmRA9^HOQ3`ifiFNCn91
+Il0^GPN7Ak_az8^i;d1TUK3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1688889123
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/ip/read_fifo.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/ip/read_fifo.v
+Z3 L0 39
+Z4 OL;L;10.5;63
+r1
+!s85 0
+31
+!s108 1690354175.000000
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/ip/read_fifo.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/ip|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/ip/read_fifo.v|
+!i113 0
+Z5 o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z6 !s92 -vlog01compat -work work +incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/ip -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vsdram_model_plus
+Z7 !s110 1690354176
+!i10b 1
+!s100 Q=9=k^KQZzYX]MAPNSL3D2
+I7Mae9M[KFV08PfKMDg;gi2
+R2
+R0
+w1601017054
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_model_plus.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_model_plus.v
+L0 56
+R4
+r1
+!s85 0
+31
+Z8 !s108 1690354176.000000
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_model_plus.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_model_plus.v|
+!i113 0
+R5
+Z9 !s92 -vlog01compat -work work +incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vsdram_pro_arbit
+R7
+!i10b 1
+!s100 kFDWk3n[8G[GzAl4b5SWM0
+I2W>OOlQhlc88Vj6jElZg72
+R2
+R0
+w1689215809
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_arbit.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_arbit.v
+L0 7
+R4
+r1
+!s85 0
+31
+R8
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/defines.v|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_arbit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_arbit.v|
+!i113 0
+R5
+R9
+R1
+vsdram_pro_autorefresh
+R7
+!i10b 1
+!s100 191Q8ZnX:GoLJG;UKmV;z0
+I1gz>lGV:cb@@WoZG7=ni43
+R2
+R0
+w1686746385
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_autorefresh.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_autorefresh.v
+L0 9
+R4
+r1
+!s85 0
+31
+R8
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/defines.v|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_autorefresh.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_autorefresh.v|
+!i113 0
+R5
+R9
+R1
+vsdram_pro_axi_master
+R7
+!i10b 1
+!s100 =A6MnDoJnd<JfPc[WVBX?2
+I6ma4k2172k`fQ4jMS^L@L0
+R2
+R0
+w1690354050
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_master.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_master.v
+L0 3
+R4
+r1
+!s85 0
+31
+R8
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_master.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_master.v|
+!i113 0
+R5
+R9
+R1
+vsdram_pro_axi_slave
+R7
+!i10b 1
+!s100 QoTTUBjJagJ66]a1O8zfT3
+I3:^c[DB<DnlU6AMBP^Gj?3
+R2
+R0
+w1690276526
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_slave.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_slave.v
+L0 15
+R4
+r1
+!s85 0
+31
+R8
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_slave.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_slave.v|
+!i113 0
+R5
+R9
+R1
+vsdram_pro_axi_top
+R7
+!i10b 1
+!s100 bGm1AM=[MG>HMVjoYeoAK2
+I@9I@6E97ZRE^hL;gCN6dE2
+R2
+R0
+w1690291553
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_top.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_top.v
+L0 6
+R4
+r1
+!s85 0
+31
+R8
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/defines.v|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_top.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_top.v|
+!i113 0
+R5
+R9
+R1
+vsdram_pro_axi_top_tb
+Z10 !s110 1690354177
+!i10b 1
+!s100 [3ezD01Jm8jE]9<<[B`4U1
+If]zn]E:<]XzmMWV^268_C2
+R2
+R0
+w1690339455
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_top_tb.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_top_tb.v
+L0 3
+R4
+r1
+!s85 0
+31
+Z11 !s108 1690354177.000000
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_top_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_axi_top_tb.v|
+!i113 0
+R5
+R9
+R1
+vsdram_pro_fifo_ctrl
+R10
+!i10b 1
+!s100 Zb``7BK9j^Y78?gBl;NFI2
+IaQ]o;lk?4Y9]zZBVP`Eg[1
+R2
+R0
+w1690338227
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_fifo_ctrl.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_fifo_ctrl.v
+L0 7
+R4
+r1
+!s85 0
+31
+R11
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/defines.v|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_fifo_ctrl.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_fifo_ctrl.v|
+!i113 0
+R5
+R9
+R1
+vsdram_pro_init
+R10
+!i10b 1
+!s100 VS:f8ZzmGFjVlC[<lIWnb1
+IHO;AUZmd]8JTP4f?`OC9=3
+R2
+R0
+w1686315028
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_init.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_init.v
+L0 7
+R4
+r1
+!s85 0
+31
+R11
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/defines.v|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_init.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_init.v|
+!i113 0
+R5
+R9
+R1
+vsdram_pro_read
+R10
+!i10b 1
+!s100 7A69o7nHd0YUJ:0[W8KHg1
+InjdXI82MAeeljZnI;<hCK2
+R2
+R0
+w1690249299
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_read.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_read.v
+L0 8
+R4
+r1
+!s85 0
+31
+R11
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/defines.v|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_read.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_read.v|
+!i113 0
+R5
+R9
+R1
+vsdram_pro_sdram_ctrl
+R10
+!i10b 1
+!s100 0lM80VfXbc>gSR5^7SXN62
+I6Je<IdWWkhDN882D@C_kY2
+R2
+R0
+w1690274512
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_sdram_ctrl.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_sdram_ctrl.v
+L0 7
+R4
+r1
+!s85 0
+31
+R11
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/defines.v|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_sdram_ctrl.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_sdram_ctrl.v|
+!i113 0
+R5
+R9
+R1
+vsdram_pro_top
+R10
+!i10b 1
+!s100 5T8:V7;W>jLF@:D[VC=z41
+IQKBn3l2zHZGokfRKDfV=M1
+R2
+R0
+w1690338178
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_top.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_top.v
+L0 3
+R4
+r1
+!s85 0
+31
+R11
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_top.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_top.v|
+!i113 0
+R5
+R9
+R1
+vsdram_pro_write
+Z12 !s110 1690354178
+!i10b 1
+!s100 mdko@LI>?`0>ch;QY5;gI1
+IaFLILNnLD:^PSZBzOj_Rf1
+R2
+R0
+w1690249295
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_write.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_write.v
+L0 8
+R4
+r1
+!s85 0
+31
+Z13 !s108 1690354178.000000
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/defines.v|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_write.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/src/sdram_pro_write.v|
+!i113 0
+R5
+R9
+R1
+vwrite_fifo
+R12
+!i10b 1
+!s100 eM^9d9eZAEL[BPoZ_9mcf3
+I5bKOiTffbUH?e;^jLDf;e2
+R2
+R0
+w1688806625
+8D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/ip/write_fifo.v
+FD:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/ip/write_fifo.v
+R3
+R4
+r1
+!s85 0
+31
+R13
+!s107 D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/ip/write_fifo.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/ip|-L|mtiAvm|-L|mtiRnm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|-L|infact|D:/ic/project/Sdram_Controler_pro/sdram_fifo_axi/Sdram_Controller_pro_fifo_axi_plus/ip/write_fifo.v|
+!i113 0
+R5
+R6
+R1

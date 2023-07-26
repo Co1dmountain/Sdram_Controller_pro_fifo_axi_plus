@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="sdram_fifo_axi">
+		<CBX_INST_ENTRY INSTANCE_NAME="|sdram_pro_axi_top|sdram_pro_top:u_sdram_pro_top|sdram_pro_fifo_ctrl:fifo_ctrl_inst|read_fifo:read_fifo_inst|dcfifo:dcfifo_component" CBX_FILE_NAME="dcfifo_5lj1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sdram_pro_axi_top|sdram_pro_top:u_sdram_pro_top|sdram_pro_fifo_ctrl:fifo_ctrl_inst|write_fifo:write_fifo_inst|dcfifo:dcfifo_component" CBX_FILE_NAME="dcfifo_prn1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

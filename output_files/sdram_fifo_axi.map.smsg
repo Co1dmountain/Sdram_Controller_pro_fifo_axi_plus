@@ -1,0 +1,22 @@
+Warning (10273): Verilog HDL warning at sdram_model_plus.v(865): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at sdram_model_plus.v(866): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at sdram_model_plus.v(867): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at sdram_model_plus.v(868): extended using "x" or "z"
+Warning (10268): Verilog HDL information at sdram_model_plus.v(329): always construct contains both blocking and non-blocking assignments
+Warning (10273): Verilog HDL warning at sdram_pro_sdram_ctrl.v(66): extended using "x" or "z"
+Info (10281): Verilog HDL Declaration information at sdram_pro_write.v(20): object "wr_end" differs only in case from object "WR_END" in the same scope
+Info (10281): Verilog HDL Declaration information at sdram_pro_write.v(42): object "CNT_TRP" differs only in case from object "cnt_trp" in the same scope
+Info (10281): Verilog HDL Declaration information at sdram_pro_write.v(43): object "CNT_TRC" differs only in case from object "cnt_trc" in the same scope
+Warning (10273): Verilog HDL warning at sdram_pro_read.v(232): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at sdram_pro_read.v(298): extended using "x" or "z"
+Info (10281): Verilog HDL Declaration information at sdram_pro_read.v(20): object "rd_end" differs only in case from object "RD_END" in the same scope
+Info (10281): Verilog HDL Declaration information at sdram_pro_read.v(45): object "CNT_TRP" differs only in case from object "cnt_trp" in the same scope
+Info (10281): Verilog HDL Declaration information at sdram_pro_read.v(46): object "CNT_TRC" differs only in case from object "cnt_trc" in the same scope
+Info (10281): Verilog HDL Declaration information at sdram_pro_read.v(47): object "CNT_CAS_LATENCY" differs only in case from object "cnt_cas_latency" in the same scope
+Info (10281): Verilog HDL Declaration information at sdram_pro_init.v(16): object "init_end" differs only in case from object "INIT_END" in the same scope
+Info (10281): Verilog HDL Declaration information at sdram_pro_init.v(30): object "CNT_TRP" differs only in case from object "cnt_trp" in the same scope
+Info (10281): Verilog HDL Declaration information at sdram_pro_init.v(31): object "CNT_TRC" differs only in case from object "cnt_trc" in the same scope
+Info (10281): Verilog HDL Declaration information at sdram_pro_autorefresh.v(19): object "atref_end" differs only in case from object "ATREF_END" in the same scope
+Info (10281): Verilog HDL Declaration information at sdram_pro_autorefresh.v(32): object "CNT_15US" differs only in case from object "cnt_15us" in the same scope
+Info (10281): Verilog HDL Declaration information at sdram_pro_autorefresh.v(33): object "CNT_TRP" differs only in case from object "cnt_trp" in the same scope
+Info (10281): Verilog HDL Declaration information at sdram_pro_autorefresh.v(34): object "CNT_TRC" differs only in case from object "cnt_trc" in the same scope

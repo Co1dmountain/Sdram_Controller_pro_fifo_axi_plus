@@ -1,0 +1,5 @@
+set tool_name "ModelSim (Verilog)"
+set corner_file_list {
+	{{"Slow Model"} {sdram_fifo_axi.vo sdram_fifo_axi_v.sdo}}
+	{{"Fast Model"} {sdram_fifo_axi_fast.vo sdram_fifo_axi_v_fast.sdo}}
+}
